@@ -1,5 +1,5 @@
 CC=emcc
-CFLAGS= -O3 -Wno-unused-result --flto \
+CFLAGS= -O3 -Wno-unused-result --flto -sFORCE_FILESYSTEM=1 --idbfs \
 -sUSE_SDL=2 -s USE_ZLIB=1 -I./include -I./libpcsxcore
 LDFLAGS= 
 
@@ -17,7 +17,7 @@ plugins/dfxvideo/prim.o  plugins/dfxvideo/zn.o plugins/dfxvideo/draw_null.o  \
 plugins/dfxvideo/gpu.o   plugins/dfxvideo/soft.o \
 plugins/dfsound/spu.o plugins/dfsound/cfg.o  plugins/dfsound/dma.o plugins/dfsound/registers.o plugins/dfsound/worker.o \
 plugins/sdlinput/cfg.o     plugins/sdlinput/pad_worker.o plugins/sdlinput/analog.o
-WORKER_FLAGS= --post-js worker_funcs.js -s TOTAL_MEMORY=1400mb -s EXPORTED_FUNCTIONS=$(WORKER_EXPORT)
+WORKER_FLAGS= --post-js worker_funcs.js -sALLOW_MEMORY_GROWTH=0 -s TOTAL_MEMORY=1400mb -s EXPORTED_FUNCTIONS=$(WORKER_EXPORT)
 
 UI_EXPORT="['_main','_get_ptr', '_render','_LoadPADConfig', '_CheckKeyboard', '_CheckJoy', '_SoundFeedStreamData', '_SoundGetBytesBuffered']"
 UI_OBJS=plugins/sdlinput/cfg.o plugins/sdlinput/xkb.o gui/wwGUI.o \
