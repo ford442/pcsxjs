@@ -1,7 +1,7 @@
 CC=emcc
-CFLAGS= -O3 -Wno-unused-result -flto -sFORCE_FILESYSTEM=1 -lidbfs.js -sALLOW_MEMORY_GROWTH=0 -s TOTAL_MEMORY=1400mb \
+CFLAGS= -O3 -Wno-unused-result -sFORCE_FILESYSTEM=1 -lidbfs.js -sALLOW_MEMORY_GROWTH=0 -s TOTAL_MEMORY=1400mb \
 -sUSE_SDL=2 -s USE_ZLIB=1 -I./include -I./libpcsxcore -sEXPORTED_RUNTIME_METHODS=["ccall","cwrap"]
-LDFLAGS= 
+LDFLAGS= -flto 
 
 # WORKER
 WORKER_EXPORT="['_main',  '_pcsx_init', '_one_iter', '_get_ptr', '_ls']"
