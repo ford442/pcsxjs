@@ -1,4 +1,4 @@
-CC=emcc
+CC=em++
 CFLAGS= -O3 -Wno-unused-result -sFORCE_FILESYSTEM=1 -lidbfs.js -sALLOW_MEMORY_GROWTH=0 -s TOTAL_MEMORY=1400mb \
 -sUSE_SDL=2 -s USE_ZLIB=1 -I./include -I./libpcsxcore -sEXPORTED_RUNTIME_METHODS=["ccall","cwrap"]
 LDFLAGS= -flto 
@@ -36,7 +36,7 @@ gui/xbrz.o: gui/xbrz.cpp gui/xbrz.h
 	$(CC) -c -o $@ $(CFLAGS) -x c++ -std=c++14 -DNDEBUG $<
 
 pcsx_worker.js: $(WORKER_OBJS) worker_funcs.js
-	emar cr  $(WORKER_OBJS) -o out.o
+	emar cr  $(WORKER_OBJS)
 	$(CC) -o $@ $(CFLAGS) out.o $(LDFLAGS) $(WORKER_FLAGS)
 
 pcsx_ww.js: $(UI_OBJS)
