@@ -81,25 +81,25 @@ int LoadConfig(PcsxConfig *Conf) {
 
 	// Ryan says: use dotdir, dotdir is GOOD
 	// No giant homedir names
-	strncpy(cfgfile, getenv("HOME"), 200);
-	strcat(cfgfile, PCSX_DOT_DIR);
+	strncpy(CfgFile, getenv("HOME"), 200);
+	strcat(CfgFile, PCSX_DOT_DIR);
 
 	// proceed to load the cfg file
 	// append its name
-	strcat(cfgfile, cfgfile_basename);
+	strcat(CfgFile, CfgFile);
 
 	// file is  now ~/.pcsx/pcsx.cfg (or whatever cfgfile_basename is)
-	if (stat(cfgfile, &buf) == -1) {
+	if (stat(CfgFile, &buf) == -1) {
 		// the config file doesn't exist!
 		/* TODO Error checking? */
-		printf("Configuration file %s couldn't be found\n", cfgfile);
+		printf("Configuration file %s couldn't be found\n", CfgFile);
 		return -1;
 	}
 
 	size = buf.st_size;
 
 	/* TODO Error checking for the next two lines, and at least log failures */
-	f = fopen(cfgfile, "r");
+	f = fopen(CfgFile, "r");
 	if (f == NULL) return -1;
 
 	data = (char *)malloc(size + 1);
@@ -147,7 +147,7 @@ void SaveConfig() {
 	/* TODO Error checking for the next two lines, and at least log
 	   failures - suggest a file dialog to specify a new file or
 	   create a new file */
-	f = fopen(cfgfile, "w");
+	f = fopen(CfgFile, "w");
 	if (f == NULL) return;
 
 	SetValue("Bios", Config.Bios);
