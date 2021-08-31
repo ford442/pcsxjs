@@ -1,7 +1,7 @@
 CC=emcc
-CFLAGS= -O3 -Wno-unused-result -s WASM=1 \
--D USESDLSOUND  -s USE_ZLIB=1 -I./include -I./libpcsxcore
-LDFLAGS= --llvm-lto 1  
+CFLAGS= -O3 -Wno-unused-result \
+-sUSE_SDL=2 -s USE_ZLIB=1 -I./include -I./libpcsxcore
+LDFLAGS= --flto
 
 # WORKER
 WORKER_EXPORT="['_main',  '_pcsx_init', '_one_iter', '_get_ptr', '_ls']"
@@ -22,7 +22,7 @@ WORKER_FLAGS= --post-js worker_funcs.js -s TOTAL_MEMORY=419430400 -s EXPORTED_FU
 UI_EXPORT="['_main','_get_ptr', '_render','_LoadPADConfig', '_CheckKeyboard', '_CheckJoy', '_SoundFeedStreamData', '_SoundGetBytesBuffered']"
 UI_OBJS=plugins/sdlinput/cfg.o plugins/sdlinput/xkb.o gui/wwGUI.o \
 plugins/sdlinput/sdljoy.o plugins/sdlinput/analog.o plugins/dfsound/sdl.o  
-UI_FLAGS=--llvm-lto 1 -s EXPORTED_FUNCTIONS=$(UI_EXPORT) -s TOTAL_MEMORY=16777216
+UI_FLAGS=--flto -s EXPORTED_FUNCTIONS=$(UI_EXPORT) -s TOTAL_MEMORY=1400mb
 
 
 ALL: pcsx_worker.js pcsx_ww.js
