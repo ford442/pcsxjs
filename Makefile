@@ -1,5 +1,5 @@
 CC=emcc
-CFLAGS= -O3 -Wno-unused-result --flto -sFORCE_FILESYSTEM=1 --idbfs \
+CFLAGS= -O3 -Wno-unused-result -flto -sFORCE_FILESYSTEM=1 -idbfs \
 -sUSE_SDL=2 -s USE_ZLIB=1 -I./include -I./libpcsxcore
 LDFLAGS= 
 
