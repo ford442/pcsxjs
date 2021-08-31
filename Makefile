@@ -1,6 +1,6 @@
 CC=emcc
 CFLAGS= -O3 -Wno-unused-result -flto -sFORCE_FILESYSTEM=1 -lidbfs.js -sALLOW_MEMORY_GROWTH=0 -s TOTAL_MEMORY=1400mb \
--sUSE_SDL=2 -s USE_ZLIB=1 -I./include -I./libpcsxcore -sEXPORTED_RUNTIME_METHODS='["ccall","cwrap"]'
+-sUSE_SDL=2 -s USE_ZLIB=1 -I./include -I./libpcsxcore -sEXTRA_EXPORTED_RUNTIME_METHODS=["ccall","cwrap"]
 LDFLAGS= 
 
 # WORKER
