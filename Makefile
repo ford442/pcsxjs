@@ -36,7 +36,7 @@ gui/xbrz.o: gui/xbrz.cpp gui/xbrz.h
 	$(CC) -c -o $@ $(CFLAGS) -x c++ -std=c++14 -DNDEBUG $<
 
 pcsx_worker.js: $(WORKER_OBJS) worker_funcs.js
-	emar cr  $(WORKER_OBJS)
+	emar cr -c $(WORKER_OBJS)
 	$(CC) -o $@ $(CFLAGS) out.o $(LDFLAGS) $(WORKER_FLAGS)
 
 pcsx_ww.js: $(UI_OBJS)
