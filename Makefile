@@ -1,6 +1,6 @@
 CC=em++
 CFLAGS= -O3 -Wno-unused-result -sFORCE_FILESYSTEM=1 -lidbfs.js -sALLOW_MEMORY_GROWTH=0 -s TOTAL_MEMORY=1400mb \
--sUSE_SDL=2 -s USE_ZLIB=1 -I./include -I./libpcsxcore -sEXPORTED_RUNTIME_METHODS=["ccall","cwrap"]
+-sUSE_SDL=2 -sBINARYEN=1 -sBINARYEN_TRAP_MODE='clamp' -s USE_ZLIB=1 -I./include -I./libpcsxcore -sEXPORTED_RUNTIME_METHODS=["ccall","cwrap"]
 LDFLAGS= -flto 
 
 # WORKER
