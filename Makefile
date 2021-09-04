@@ -4,7 +4,7 @@ CFLAGS= -O3 -Wno-unused-result -sFORCE_FILESYSTEM=1 -lidbfs.js -sALLOW_MEMORY_GR
 LDFLAGS= -flto 
 
 # WORKER
-WORKER_EXPORT="['_main',  '_pcsx_init', '_one_iter', '_get_ptr', '_ls','_SetupSound', ]"
+WORKER_EXPORT="['_main',  '_pcsx_init', '_one_iter', '_get_ptr', '_ls']"
 WORKER_OBJS=gui/workerMain.o gui/Plugin.o gui/Config.o \
 libpcsxcore/psxbios.o libpcsxcore/cdrom.o libpcsxcore/psxcounters.o \
 libpcsxcore/psxdma.o libpcsxcore/disr3000a.o libpcsxcore/spu.o libpcsxcore/sio.o \
