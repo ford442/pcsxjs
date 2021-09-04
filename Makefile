@@ -1,7 +1,6 @@
 CC=em++
-CFLAGS= -O3 -Wno-unused-result -sFORCE_FILESYSTEM=1 -lidbfs.js -sALLOW_MEMORY_GROWTH=0 -s TOTAL_MEMORY=1400mb \
--sUSE_SDL=2 -sBINARYEN=1 -s USE_ZLIB=1 -I./include -I./libpcsxcore -sEXPORTED_RUNTIME_METHODS=["ccall","cwrap"]
-LDFLAGS= -flto 
+CFLAGS= -O3 -ffast-math -sAGGRESSIVE_VARIABLE_ELIMINATION=1 -sELIMINATE_DUPLICATE_FUNCTIONS=1 -fno-rtti -fno-exceptions --closure 1 -g0 -s MALLOC="emmalloc" -s USES_DYNAMIC_ALLOC=0 -s SUPPORT_LONGJMP=0 -DNDEBUG -sASSERTIONS=0 -Wno-unused-result -sFORCE_FILESYSTEM=1 -lidbfs.js -sALLOW_MEMORY_GROWTH=0 -s TOTAL_MEMORY=1400mb -sUSE_SDL=2 -sBINARYEN=1 -s USE_ZLIB=1 -I./include -I./libpcsxcore -sEXPORTED_RUNTIME_METHODS=["ccall","cwrap"]
+LDFLAGS= -flto=thin
 
 # WORKER
 WORKER_EXPORT="['_main',  '_pcsx_init', '_one_iter', '_get_ptr', '_ls','_SetupSound', ]"
