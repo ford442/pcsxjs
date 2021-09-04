@@ -1,10 +1,10 @@
 CC=em++
-CFLAGS= -O3 -Wno-unused-result -s WASM=1 -ffast-math -sAGGRESSIVE_VARIABLE_ELIMINATION=1 -sELIMINATE_DUPLICATE_FUNCTIONS=1 \
--D USESDLSOUND -s USE_ZLIB=1 -I./include -I./libpcsxcore
-LDFLAGS= --flto 
+CFLAGS= -O3 -Wno-unused-result -sFORCE_FILESYSTEM=1 -lidbfs.js -sALLOW_MEMORY_GROWTH=0 -s TOTAL_MEMORY=1400mb \
+-sUSE_SDL=2 -sBINARYEN=1 -s USE_ZLIB=1 -I./include -I./libpcsxcore -sEXPORTED_RUNTIME_METHODS=["ccall","cwrap"]
+LDFLAGS= -flto 
 
 # WORKER
-WORKER_EXPORT="['_main',  '_pcsx_init', '_one_iter', '_get_ptr', '_ls']"
+WORKER_EXPORT="['_main',  '_pcsx_init', '_one_iter', '_get_ptr', '_ls','_SetupSound', ]"
 WORKER_OBJS=gui/workerMain.o gui/Plugin.o gui/Config.o \
 libpcsxcore/psxbios.o libpcsxcore/cdrom.o libpcsxcore/psxcounters.o \
 libpcsxcore/psxdma.o libpcsxcore/disr3000a.o libpcsxcore/spu.o libpcsxcore/sio.o \
@@ -17,13 +17,12 @@ plugins/dfxvideo/prim.o  plugins/dfxvideo/zn.o plugins/dfxvideo/draw_null.o  \
 plugins/dfxvideo/gpu.o   plugins/dfxvideo/soft.o \
 plugins/dfsound/spu.o plugins/dfsound/cfg.o  plugins/dfsound/dma.o plugins/dfsound/registers.o plugins/dfsound/worker.o \
 plugins/sdlinput/cfg.o     plugins/sdlinput/pad_worker.o plugins/sdlinput/analog.o
-WORKER_FLAGS= --post-js worker_funcs.js -s TOTAL_MEMORY=419430400 -s EXPORTED_FUNCTIONS=$(WORKER_EXPORT)
+WORKER_FLAGS= --post-js worker_funcs.js  -s EXPORTED_FUNCTIONS=$(WORKER_EXPORT)
 
 UI_EXPORT="['_main','_get_ptr', '_render','_LoadPADConfig', '_CheckKeyboard', '_CheckJoy', '_SoundFeedStreamData', '_SoundGetBytesBuffered']"
 UI_OBJS=plugins/sdlinput/cfg.o plugins/sdlinput/xkb.o gui/wwGUI.o \
 plugins/sdlinput/sdljoy.o plugins/sdlinput/analog.o plugins/dfsound/sdl.o  
-UI_FLAGS=--flto -s EXPORTED_FUNCTIONS=$(UI_EXPORT) -s TOTAL_MEMORY=16777216
-
+UI_FLAGS= -s EXPORTED_FUNCTIONS=$(UI_EXPORT)
 
 ALL: pcsx_worker.js pcsx_ww.js
 
