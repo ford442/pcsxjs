@@ -19,7 +19,7 @@ plugins/dfsound/spu.o plugins/dfsound/cfg.o  plugins/dfsound/dma.o plugins/dfsou
 plugins/sdlinput/cfg.o     plugins/sdlinput/pad_worker.o plugins/sdlinput/analog.o
 WORKER_FLAGS= --post-js worker_funcs.js  -s EXPORTED_FUNCTIONS=$(WORKER_EXPORT)
 
-UI_EXPORT="['_main','_get_ptr', '_render','_LoadPADConfig', '_CheckKeyboard', '_CheckJoy', '_SoundFeedStreamData', '_SoundGetBytesBuffered']"
+UI_EXPORT="['_main','_get_ptr', '_render','_LoadPADConfig', '_CheckKeyboard', '_CheckJoy', '_SoundFeedStreamData', '_SoundGetBytesBuffered','_SetupSound']"
 UI_OBJS=plugins/sdlinput/cfg.o plugins/sdlinput/xkb.o gui/wwGUI.o \
 plugins/sdlinput/sdljoy.o plugins/sdlinput/analog.o plugins/dfsound/sdl.o  
 UI_FLAGS= -s EXPORTED_FUNCTIONS=$(UI_EXPORT)
