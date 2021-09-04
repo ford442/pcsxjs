@@ -1,5 +1,5 @@
 CC=em++
-CFLAGS= -O3 -ffast-math -fno-rtti -fno-exceptions -s MALLOC="emmalloc"  -Wno-unused-result -sFORCE_FILESYSTEM=1 -lidbfs.js -sALLOW_MEMORY_GROWTH=0 -s TOTAL_MEMORY=1400mb -sUSE_SDL=2 -sBINARYEN=1 -s USE_ZLIB=1 -I./include -I./libpcsxcore -sEXPORTED_RUNTIME_METHODS=["ccall","cwrap"]
+CFLAGS= -O3 -ffast-math  -s MALLOC="emmalloc"  -Wno-unused-result -sFORCE_FILESYSTEM=1 -lidbfs.js -sALLOW_MEMORY_GROWTH=0 -s TOTAL_MEMORY=1400mb -sUSE_SDL=2 -sBINARYEN=1 -s USE_ZLIB=1 -I./include -I./libpcsxcore -sEXPORTED_RUNTIME_METHODS=["ccall","cwrap"]
 LDFLAGS= -flto=thin
 
 # WORKER
