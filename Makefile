@@ -1,7 +1,7 @@
 CC=em++
-CFLAGS= -O3 -Wno-unused-result -sFORCE_FILESYSTEM=1 -lidbfs.js -sALLOW_MEMORY_GROWTH=0 -s TOTAL_MEMORY=1400mb \
--sUSE_SDL=2 -sBINARYEN=1 -s USE_ZLIB=1 -I./include -I./libpcsxcore -sEXPORTED_RUNTIME_METHODS=["ccall","cwrap"]
-LDFLAGS= -flto 
+CFLAGS= -O3 -sUSE_WEBGL2=1 -Wno-unused-result -sFORCE_FILESYSTEM=1 -lidbfs.js -sALLOW_MEMORY_GROWTH=0 -s TOTAL_MEMORY=1400mb \
+-sUSE_SDL=2 -sBINARYEN=1 -sUSE_ZLIB=1 -I./include -I./libpcsxcore -sEXPORTED_RUNTIME_METHODS=ccall,cwrap
+LDFLAGS= -flto=thin
 
 # WORKER
 WORKER_EXPORT="['_main',  '_pcsx_init', '_one_iter', '_get_ptr', '_ls', '_SetupSound']"
@@ -22,7 +22,7 @@ WORKER_FLAGS= --post-js worker_funcs.js  -s EXPORTED_FUNCTIONS=$(WORKER_EXPORT)
 UI_EXPORT="['_main','_get_ptr', '_render','_LoadPADConfig', '_CheckKeyboard', '_CheckJoy', '_SoundFeedStreamData', '_SoundGetBytesBuffered', '_SetupSound']"
 UI_OBJS=plugins/sdlinput/cfg.o plugins/sdlinput/xkb.o gui/wwGUI.o \
 plugins/sdlinput/sdljoy.o plugins/sdlinput/analog.o plugins/dfsound/sdl.o  
-UI_FLAGS= -s EXPORTED_FUNCTIONS=$(UI_EXPORT)
+UI_FLAGS= -sEXPORTED_FUNCTIONS=$(UI_EXPORT)
 
 ALL: pcsx_worker.js pcsx_ww.js
 
