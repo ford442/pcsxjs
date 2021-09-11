@@ -42,11 +42,11 @@ FILE *mylogf=NULL;
 void execI();
 
 // Subsets
-// void (*psxBSC[64])();
-// void (*psxSPC[64])();
-// void (*psxREG[32])();
-// void (*psxCP0[32])();
-// void (*psxCP2[64])();
+void (*psxBSC[64])();
+void (*psxSPC[64])();
+void (*psxREG[32])();
+void (*psxCP0[32])();
+void (*psxCP2[64])();
 void (*psxCP2BSC[32])();
 static void delayRead(int reg, u32 bpc) {
 	u32 rold, rnew;
