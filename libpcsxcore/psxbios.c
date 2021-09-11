@@ -121,12 +121,10 @@ char *biosB0n[256] = {
 };
 
 char *biosC0n[256] = {
-// 0x00
 	"InitRCnt",			  "InitException",		"SysEnqIntRP",		"SysDeqIntRP",
 	"get_free_EvCB_slot", "get_free_TCB_slot",	"ExceptionHandler",	"InstallExeptionHandler",
 	"SysInitMemory",	  "SysInitKMem",		"ChangeClearRCnt",	"SystemError",
 	"InitDefInt",		  "sys_c0_0d",			"sys_c0_0e",		"sys_c0_0f",
-// 0x10
 	"sys_c0_10",		  "sys_c0_11",			"InstallDevices",	"FlushStfInOutPut",
 	"sys_c0_14",		  "_cdevinput",			"_cdevscan",		"_circgetc",
 	"_circputc",		  "ioabort",			"sys_c0_1a",		"KernelRedirect",
