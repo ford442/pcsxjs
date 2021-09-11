@@ -622,7 +622,7 @@ static int parseccd(const char *isofile) {
 		}
 		else if (!strncmp(linebuf, "MODE=", 5)) {
 			sscanf(linebuf, "MODE=%d", &t);
-			ti[numtracks].type = ((t == 0) ? CDDA : trackinfo::DATA);
+			ti[numtracks].type = ((t == 0) ? trackinfo::CDDA : trackinfo::DATA);
 		}
 		else if (!strncmp(linebuf, "INDEX 1=", 8)) {
 			sscanf(linebuf, "INDEX 1=%d", &t);
