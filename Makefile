@@ -1,10 +1,10 @@
 CC=emcc
 CFLAGS= --closure 1 -g2 -O3 -sMAX_WEBGL_VERSION=2 -sMIN_WEBGL_VERSION=2 -sUSE_WEBGL2=1 -Wno-unused-result -sFORCE_FILESYSTEM=1 -lidbfs.js -sALLOW_MEMORY_GROWTH=0 -s TOTAL_MEMORY=1400mb \
 -sUSE_SDL=2 -sBINARYEN=1 -sUSE_ZLIB=1 -I./include -I./libpcsxcore -sEXPORTED_RUNTIME_METHODS=ccall,cwrap
-LDFLAGS= -flto
+LDFLAGS= -flto=thin
 
 # WORKER
-WORKER_EXPORT="['_main', '_pcsx_init', '_one_iter', '_get_ptr', '_ls', '_SetupSound']"
+WORKER_EXPORT="['_pcsx_init', '_one_iter', '_get_ptr', '_ls']"
 WORKER_OBJS=gui/workerMain.o gui/Plugin.o gui/Config.o \
 libpcsxcore/psxbios.o libpcsxcore/cdrom.o libpcsxcore/psxcounters.o \
 libpcsxcore/psxdma.o libpcsxcore/disr3000a.o libpcsxcore/spu.o libpcsxcore/sio.o \
@@ -19,7 +19,7 @@ plugins/dfsound/spu.o plugins/dfsound/cfg.o  plugins/dfsound/dma.o plugins/dfsou
 plugins/sdlinput/cfg.o     plugins/sdlinput/pad_worker.o plugins/sdlinput/analog.o
 WORKER_FLAGS= --post-js worker_funcs.js  -s EXPORTED_FUNCTIONS=$(WORKER_EXPORT)
 
-UI_EXPORT="['_main','_get_ptr', '_render','_LoadPADConfig', '_CheckKeyboard', '_CheckJoy', '_SoundFeedStreamData', '_SoundGetBytesBuffered', '_SetupSound']"
+UI_EXPORT="['_get_ptr', '_render','_LoadPADConfig', '_CheckKeyboard', '_CheckJoy', '_SoundFeedStreamData', '_SoundGetBytesBuffered', '_SetupSound']"
 UI_OBJS=plugins/sdlinput/cfg.o plugins/sdlinput/xkb.o gui/wwGUI.o \
 plugins/sdlinput/sdljoy.o plugins/sdlinput/analog.o plugins/dfsound/sdl.o  
 UI_FLAGS= -sEXPORTED_FUNCTIONS=$(UI_EXPORT)
