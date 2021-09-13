@@ -1,10 +1,10 @@
 CC=emcc
-CFLAGS= -O3 -sUSE_WEBGL2=1 -Wno-unused-result -sFORCE_FILESYSTEM=1 -lidbfs.js -sALLOW_MEMORY_GROWTH=0 -s TOTAL_MEMORY=1400mb \
+CFLAGS= --closure 1 -g2 -O3 -sMAX_WEBGL_VERSION=2 -sMIN_WEBGL_VERSION=2 -sUSE_WEBGL2=1 -Wno-unused-result -sFORCE_FILESYSTEM=1 -lidbfs.js -sALLOW_MEMORY_GROWTH=0 -s TOTAL_MEMORY=1400mb \
 -sUSE_SDL=2 -sBINARYEN=1 -sUSE_ZLIB=1 -I./include -I./libpcsxcore -sEXPORTED_RUNTIME_METHODS=ccall,cwrap
 LDFLAGS= -flto=thin
 
 # WORKER
-WORKER_EXPORT="['_main',  '_pcsx_init', '_one_iter', '_get_ptr', '_ls', '_SetupSound']"
+WORKER_EXPORT="['_main', '_pcsx_init', '_one_iter', '_get_ptr', '_ls', '_SetupSound']"
 WORKER_OBJS=gui/workerMain.o gui/Plugin.o gui/Config.o \
 libpcsxcore/psxbios.o libpcsxcore/cdrom.o libpcsxcore/psxcounters.o \
 libpcsxcore/psxdma.o libpcsxcore/disr3000a.o libpcsxcore/spu.o libpcsxcore/sio.o \
