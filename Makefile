@@ -39,7 +39,7 @@ pcsx_worker.js: $(WORKER_OBJS) worker_funcs.js
 	$(CC) -o $@ $(CFLAGS) $(WORKER_OBJS) $(LDFLAGS) $(WORKER_FLAGS)
 
 pcsx_ww.js: $(UI_OBJS)
-	$(CC) -o $@ $(CFLAGS) $(UI_OBJS) $(LDFLAGS) $(UI_FLAGS)
+	$(CC) -o $@ $(CFLAGS) $(UI_OBJS) $(LDFLAGS) $(UI_FLAGS) -lz
 
 clean:
 	rm -f *.o */*.o */*/*.o
