@@ -622,7 +622,7 @@ static int parseccd(const char *isofile) {
 		}
 		else if (!strncmp(linebuf, "MODE=", 5)) {
 			sscanf(linebuf, "MODE=%d", &t);
-			ti[numtracks].type = ((t == 0) ? trackinfo::CDDA : trackinfo::DATA);
+			ti[numtracks].type = ((t == 0) ? CDDA : DATA);
 		}
 		else if (!strncmp(linebuf, "INDEX 1=", 8)) {
 			sscanf(linebuf, "INDEX 1=%d", &t);
@@ -718,7 +718,7 @@ static int parsemds(const char *isofile) {
 		fseek(fi, offset, SEEK_SET);
 
 		// get the track type
-		ti[i].type = ((fgetc(fi) == 0xA9) ? CDDA : trackinfo::CDDA);
+		ti[i].type = ((fgetc(fi) == 0xA9) ? CDDA : CDDA);
 		fseek(fi, 8, SEEK_CUR);
 
 		// get the track starting point
