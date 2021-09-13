@@ -23,7 +23,7 @@
 #include <unistd.h>
 
 #include "Linux.h"
-
+char CfgFile[MAXPATHLEN];
 /* TODO escaping/unescaping would be nice, as would maxchars */
 static void GetValue(char *src, char *name, char *outvar) {
 	char *tmp;
