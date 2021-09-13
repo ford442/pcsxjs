@@ -1,7 +1,7 @@
 CC=emcc
-CFLAGS=  --closure 1 -g2 -sAGGRESSIVE_VARIABLE_ELIMINATION=1 -sELIMINATE_DUPLICATE_FUNCTIONS=1 -O3 -ffast-math -sMAX_WEBGL_VERSION=2 -sMIN_WEBGL_VERSION=2 -sUSE_WEBGL2=1 -Wno-unused-result -sFORCE_FILESYSTEM=1 -lidbfs.js -sALLOW_MEMORY_GROWTH=0 -s TOTAL_MEMORY=1400mb \
+CFLAGS= -O3 -ffast-math -sMAX_WEBGL_VERSION=2 -sMIN_WEBGL_VERSION=2 -sUSE_WEBGL2=1 -Wno-unused-result -sFORCE_FILESYSTEM=1 -lidbfs.js -sALLOW_MEMORY_GROWTH=0 -s TOTAL_MEMORY=1400mb \
 -sUSE_SDL=2 -sBINARYEN=1 -sUSE_ZLIB=1 -I./include -I./libpcsxcore -sEXPORTED_RUNTIME_METHODS=ccall,cwrap
-LDFLAGS= -flto
+LDFLAGS= -flto=thin
 
 # WORKER
 WORKER_EXPORT="['_pcsx_init', '_one_iter', '_get_ptr', '_ls']"
@@ -36,7 +36,7 @@ gui/xbrz.o: gui/xbrz.cpp gui/xbrz.h
 	$(CC) -c -o $@ $(CFLAGS) -x c++ -std=c++14 -DNDEBUG $<
 
 pcsx_worker.js: $(WORKER_OBJS) worker_funcs.js
-	$(CC) -o $@ $(CFLAGS) $(WORKER_OBJS) $(LDFLAGS) $(WORKER_FLAGS)
+	$(CC) -o $@ $(CFLAGS) $(WORKER_OBJS) $(WORKER_FLAGS) $(LDFLAGS) 
 
 pcsx_ww.js: $(UI_OBJS)
 	$(CC) -o $@ $(CFLAGS) $(UI_OBJS) $(LDFLAGS) $(UI_FLAGS)
