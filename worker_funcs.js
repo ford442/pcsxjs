@@ -124,7 +124,7 @@ Module.HEAPU8.set(data.states,padStatus1);
 postMessage({
 cmd:"return_states",states:data.states
 },[data.states.buffer]);
-Module.SetValue(soundbuffer_ptr,data.soundbuffer,"i32");
+Module.setValue(soundbuffer_ptr,data.soundbuffer,"i32");
 break;
 case "soundBytes":
 Module.setValue(soundbuffer_ptr,getValue(soundbuffer_ptr,"i32")-data.lBytes,"i32");
