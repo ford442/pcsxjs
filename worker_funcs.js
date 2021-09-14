@@ -166,7 +166,7 @@ var main_onmessage = function (event) {
 				cmd: "return_states",
 				states: data.states
 			}, [data.states.buffer]);
-			Module.setValue(soundbuffer_ptr, data.soundbuffer, "i32");
+			// Module.setValue(soundbuffer_ptr, data.soundbuffer, "i32");
 			break;
 
 		case "soundBytes":
