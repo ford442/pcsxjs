@@ -1,4 +1,4 @@
-var Module;
+alvar Module;
 if (!Module) Module = {};
 Module.setStatus = function (s) {
 	postMessage({
@@ -166,11 +166,11 @@ var main_onmessage = function (event) {
 				cmd: "return_states",
 				states: data.states
 			}, [data.states.buffer]);
-			Module.HEAPU8.set(soundbuffer_ptr, data.soundbuffer, "i32");
+			Module.SetValue(soundbuffer_ptr, data.soundbuffer, "i32");
 			break;
 
 		case "soundBytes":
-			Module.HEAPU8.set(soundbuffer_ptr, HEAPU8[soundbuffer_ptr, "i32"] - data.lBytes, "i32");
+			Module.SetValue(soundbuffer_ptr, GetValue(soundbuffer_ptr, "i32") - data.lBytes, "i32");
 			break;
 
 		case "return_vram":
