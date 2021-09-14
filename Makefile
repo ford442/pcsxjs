@@ -34,7 +34,7 @@ ALL: pcsx_worker.js pcsx_ww.js
 %.o: %.cc
 	$(CC) -x c++ -std=c++14 -c -o $@ $< $(CFLAGS)
 
-gui/xbrz.o: gui/xbrz.cpp gui/xbrz.h
+gui/xbrz.o: gui/xbrz.h
 	$(CC) -c -o $@ $(CFLAGS) -x c++ -std=c++14 -DNDEBUG $<
 
 pcsx_worker.js: $(WORKER_OBJS) worker_funcs.js
