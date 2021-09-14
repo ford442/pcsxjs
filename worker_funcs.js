@@ -170,7 +170,7 @@ var main_onmessage = function (event) {
 			break;
 
 		case "soundBytes":
-			Module.SetValue(soundbuffer_ptr, GetValue(soundbuffer_ptr, "i32") - data.lBytes, "i32");
+			Module.setValue(soundbuffer_ptr, getValue(soundbuffer_ptr, "i32") - data.lBytes, "i32");
 			break;
 
 		case "return_vram":
