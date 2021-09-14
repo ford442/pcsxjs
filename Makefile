@@ -1,6 +1,6 @@
 CC=emcc
 CFLAGS= -s SUPPORT_LONGJMP=0 -DNDEBUG -sASSERTIONS=0 -sAGGRESSIVE_VARIABLE_ELIMINATION=1 \
--sELIMINATE_DUPLICATE_FUNCTIONS=1 -fno-rtti -fno-exceptions --closure 1 -g3 -sENVIRONMENT=web -O3 -ffast-math \
+-sELIMINATE_DUPLICATE_FUNCTIONS=1 -fno-rtti -fno-exceptions --closure 0 -sENVIRONMENT=web -O3 -ffast-math \
 -sMAX_WEBGL_VERSION=2 -sMIN_WEBGL_VERSION=2 -sUSE_WEBGL2=1 -Wno-unused-result -sFORCE_FILESYSTEM=1 -lidbfs.js \
 -sALLOW_MEMORY_GROWTH=1 -s TOTAL_MEMORY=1400mb \
 -sUSE_SDL=2 -sMALLOC="emmalloc" -sBINARYEN=1 -sUSE_ZLIB=1 -I./include -I./libpcsxcore -sEXPORTED_RUNTIME_METHODS=ccall,cwrap
@@ -20,7 +20,7 @@ plugins/dfxvideo/prim.o  plugins/dfxvideo/zn.o plugins/dfxvideo/draw_null.o  \
 plugins/dfxvideo/gpu.o   plugins/dfxvideo/soft.o \
 plugins/dfsound/spu.o plugins/dfsound/cfg.o  plugins/dfsound/dma.o plugins/dfsound/registers.o plugins/dfsound/worker.o \
 plugins/sdlinput/cfg.o     plugins/sdlinput/pad_worker.o plugins/sdlinput/analog.o
-WORKER_FLAGS= --post-js worker_funcs.js  -s EXPORTED_FUNCTIONS=$(WORKER_EXPORT)
+WORKER_FLAGS= --extern-post-js worker_funcs.js  -s EXPORTED_FUNCTIONS=$(WORKER_EXPORT)
 
 UI_EXPORT="['_main','_get_ptr', '_render','_LoadPADConfig', '_CheckKeyboard', '_CheckJoy', '_SoundFeedStreamData', '_SoundGetBytesBuffered', '_SetupSound']"
 UI_OBJS=plugins/sdlinput/cfg.o plugins/sdlinput/xkb.o gui/wwGUI.o \
