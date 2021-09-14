@@ -400,7 +400,7 @@ pthread_create(&threadid,NULL,playthread,NULL);
 // this function tries to get the .toc file of the given .bin
 // the necessary data is put into the ti (trackinformation)-array
 static int parsetoc(const char *isofile) {
-chartocname[MAXPATHLEN];
+char tocname[MAXPATHLEN];
 FILE*fi;
 charlinebuf[256],dummy[256],name[256];
 char*token;
