@@ -170,7 +170,7 @@ var main_onmessage = function (event) {
 			break;
 
 		case "soundBytes":
-			Module.setValue(soundbuffer_ptr, HEAPU8[soundbuffer_ptr, "i32"] - data.lBytes, "i32");
+			Module.HEAPU8.set(soundbuffer_ptr, HEAPU8[soundbuffer_ptr, "i32"] - data.lBytes, "i32");
 			break;
 
 		case "return_vram":
