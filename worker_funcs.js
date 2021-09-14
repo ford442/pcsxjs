@@ -1,4 +1,4 @@
-alvar Module;
+var Module;
 if (!Module) Module = {};
 Module.setStatus = function (s) {
 	postMessage({
