@@ -1,7 +1,7 @@
 CC=emcc
 CFLAGS= -s SUPPORT_LONGJMP=0 -DNDEBUG -sASSERTIONS=0 -fno-rtti -fno-exceptions --closure 1 -g2 -O3 -ffast-math \
 -sMAX_WEBGL_VERSION=2 -sMIN_WEBGL_VERSION=2 -sUSE_WEBGL2=1 -Wno-unused-result -sFORCE_FILESYSTEM=1 -lidbfs.js \
--sALLOW_MEMORY_GROWTH=1 -s TOTAL_MEMORY=1400mb \
+-sALLOW_MEMORY_GROWTH=0 -s TOTAL_MEMORY=1400mb \
 -sUSE_SDL=2 -sMALLOC="emmalloc" -sBINARYEN=1 -sUSE_ZLIB=1 -I./include -I./libpcsxcore -sEXPORTED_RUNTIME_METHODS=setValue,getValue,ccall,cwrap
 LDFLAGS= -flto=thin
 
@@ -13,7 +13,7 @@ libpcsxcore/psxdma.o libpcsxcore/disr3000a.o libpcsxcore/spu.o libpcsxcore/sio.o
 libpcsxcore/psxhw.o libpcsxcore/mdec.o libpcsxcore/psxmem.o libpcsxcore/misc.o \
 libpcsxcore/plugins.o libpcsxcore/decode_xa.o libpcsxcore/r3000a.o libpcsxcore/psxinterpreter.o \
 libpcsxcore/gte.o libpcsxcore/psxhle.o  libpcsxcore/psxcommon.o \
-libpcsxcore/cdriso.o libpcsxcore/ppf.o   \
+libpcsxcore/cdriso.o libpcsxcore/ppf.o \
 plugins/dfxvideo/cfg.o plugins/dfxvideo/fps.o plugins/dfxvideo/key.o \
 plugins/dfxvideo/prim.o plugins/dfxvideo/zn.o plugins/dfxvideo/draw_null.o  \
 plugins/dfxvideo/gpu.o plugins/dfxvideo/soft.o \
