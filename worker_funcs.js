@@ -33,12 +33,12 @@ function show_error(prefix) {
 Module['print'] = cout_print;
 var vram_ptr, soundbuffer_ptr, isMute_ptr;
 var vram_dels = 0,
-	vram_cres = 0;
+var vram_cres = 0;
 var vram_arrs = [];
 var render = function (x, y, sx, sy, dx, dy, rgb24) {
-	var vram_arr;
-	var vram_src = Module.HEAPU8.subarray(vram_ptr, vram_ptr + 1024 * 2048);
-	while (vram_arrs.length > 10) {
+var vram_arr;
+var vram_src = Module.HEAPU8.subarray(vram_ptr, vram_ptr + 1024 * 2048);
+while (vram_arrs.length > 10) {
 		vram_arrs.pop();
 		vram_dels++;
 		//cout_print("delete vram "+vram_dels+"\n");
@@ -120,7 +120,7 @@ var readfile_and_run = function (iso_name, blob) {
 			});
 		} else
 			cout_print(e.loaded + "bytes")
-		document.getElementById("start").disabled=false		
+		// document.getElementById("start").disabled=false		
 	}
 	reader.onload = function (e) {
 		cout_print("" + iso_name + " loaded");
