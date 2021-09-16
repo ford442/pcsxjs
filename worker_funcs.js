@@ -32,7 +32,7 @@ function show_error(prefix) {
 
 Module['print'] = cout_print;
 var vram_ptr, soundbuffer_ptr, isMute_ptr;
-var vram_dels = 0,
+var vram_dels = 0;
 var vram_cres = 0;
 var vram_arrs = [];
 var render = function (x, y, sx, sy, dx, dy, rgb24) {
