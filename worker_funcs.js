@@ -120,7 +120,6 @@ var readfile_and_run = function (iso_name, blob) {
 			});
 		} else
 			cout_print(e.loaded + "bytes")
-		//document.getElementById("start").disabled=false		
 	}
 	reader.onload = function (e) {
 		cout_print("" + iso_name + " loaded");
@@ -166,7 +165,7 @@ var main_onmessage = function (event) {
 				cmd: "return_states",
 				states: data.states
 			}, [data.states.buffer]);
-			//Module.setValue(soundbuffer_ptr, data.soundbuffer, "i32");
+			Module.setValue(soundbuffer_ptr, data.soundbuffer, "i32");
 			break;
 
 		case "soundBytes":
