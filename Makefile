@@ -2,7 +2,7 @@ CC=emcc
 CFLAGS= -g -sSUPPORT_LONGJMP=0 -DNDEBUG -sASSERTIONS=0 --closure 0 -O1 \
 -sMAX_WEBGL_VERSION=2 -sMIN_WEBGL_VERSION=2 -sUSE_WEBGL2=1 -Wno-unused-result -sFORCE_FILESYSTEM=1 -lidbfs.js \
 -sALLOW_MEMORY_GROWTH=0 -sINITIAL_MEMORY=1400mb \
--sUSE_SDL=2 -sMALLOC="emmalloc" -sUSE_ZLIB=1 -I./include -I./libpcsxcore -sEXPORTED_RUNTIME_METHODS=setValue,getValue,ccall,cwrap
+-sUSE_SDL=1 -sMALLOC="emmalloc" -sUSE_ZLIB=1 -I./include -I./libpcsxcore -sEXPORTED_RUNTIME_METHODS=setValue,getValue,ccall,cwrap
 LDFLAGS= -flto
 
 # WORKER
