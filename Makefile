@@ -1,9 +1,9 @@
 CC=emcc
-CFLAGS= -g -sSUPPORT_LONGJMP=0 -DNDEBUG -sASSERTIONS=0 -O3 \
--sMAX_WEBGL_VERSION=1 -sMIN_WEBGL_VERSION=1 -Wno-unused-result -sFORCE_FILESYSTEM=1 -lidbfs.js \
+CFLAGS= -sMAX_WEBGL_VERSION=2 -sMIN_WEBGL_VERSION=2 -sUSE_WEBGL2=1 -sSUPPORT_LONGJMP=0 -DNDEBUG -sASSERTIONS=0 -O3 -ffast-math \
+-Wno-unused-result -sFORCE_FILESYSTEM=1 -lidbfs.js \
 -sALLOW_MEMORY_GROWTH=0 -sINITIAL_MEMORY=1400mb \
--sUSE_SDL=1 -sMALLOC="emmalloc" -sUSE_ZLIB=1 -I./include -I./libpcsxcore -sEXPORTED_RUNTIME_METHODS=setValue,getValue,ccall,cwrap
-LDFLAGS= -flto
+-sUSE_SDL=2 -sMALLOC="emmalloc" -sUSE_ZLIB=1 -I./include -I./libpcsxcore -sEXPORTED_RUNTIME_METHODS=setValue,getValue,ccall,cwrap
+LDFLAGS= -flto=thin
 
 # WORKER
 WORKER_EXPORT="['_main','_pcsx_init', '_one_iter', '_get_ptr', '_ls']"
