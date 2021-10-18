@@ -1,5 +1,5 @@
 CC=emcc
-CFLAGS= -sSUPPORT_LONGJMP=0 -sASSERTIONS=0 -O3 -ffast-math \
+CFLAGS= -sSINGLE_FILE=1 -sSUPPORT_LONGJMP=0 -sASSERTIONS=0 -O3 -ffast-math \
 -Wno-unused-result -DUSESDLSOUND -sFORCE_FILESYSTEM=1 -lworkerfs.js -lnodefs.js -lidbfs.js \
 -sMALLOC="emmalloc" -sUSE_ZLIB=1 -I./include -I./libpcsxcore -sEXPORTED_RUNTIME_METHODS=setValue,getValue,ccall,cwrap
 LDFLAGS= -flto
