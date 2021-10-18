@@ -1,6 +1,6 @@
 CC=emcc
 CFLAGS= -sMAX_WEBGL_VERSION=2 -sUSE_WEBGL2=1 -sSUPPORT_LONGJMP=0 -DNDEBUG -sASSERTIONS=0 -O3 -ffast-math \
--Wno-unused-result -sUSE_SDL=1 -lworkerfs.js -lnodefs.js\
+-Wno-unused-result -sUSE_SDL=1 -lworkerfs.js -lnodefs.js -lidbfs.js \
 -sALLOW_MEMORY_GROWTH=0 -sINITIAL_MEMORY=1400mb \
 -sMALLOC="emmalloc" -sUSE_ZLIB=1 -I./include -I./libpcsxcore -sEXPORTED_RUNTIME_METHODS=setValue,getValue,ccall,cwrap
 LDFLAGS= -flto=thin
